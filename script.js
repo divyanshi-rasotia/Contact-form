@@ -36,11 +36,12 @@ mail.style.display = 'block';
 mail.style.opacity = '1';
 gsap.fromTo(mail,
   { x: 0, y: 0, opacity: 1 },
-  { x: -400, y: -30, rotation:-30,opacity: 0, duration: 3.5, ease: "power2.out",
+  { x: -400, y: -30, rotation:-30,opacity: 0, duration: 2.5, ease: "power2.out",
     onComplete: () => {
       mail.style.display = 'none';
       form.reset();
       character.src = 'assets/happy.png';  // back to normal after fly
+      showSuccess();
     }
   }
 );
@@ -60,4 +61,20 @@ function showAlert(message) {
   setTimeout(() => {
     alertBox.style.display = 'none';
   }, 4000);
+}
+
+function showSuccess() {
+  const text = document.getElementById('success-text');
+  text.style.transform = 'translate(-50%, -40%) scale(1)';
+  text.style.opacity = '1';
+
+  // Restart sparkle animation
+  text.classList.remove('sparkle-text');
+  void text.offsetWidth;
+  text.classList.add('sparkle-text');
+
+  setTimeout(() => {
+    text.style.opacity = '0';
+    text.style.transform = 'translate(-50%, -40%) scale(0)';
+  }, 1800);
 }

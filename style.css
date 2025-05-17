@@ -96,27 +96,23 @@ form button:hover {
   color: black;
   transition: background-color 0.3s ease;
 }
-#popup-alert {
-  position: fixed;
-  top: 30px;
+
+#success-text {
+  position: absolute;
+  top: 70px;
   left: 50%;
-  transform: translateX(-50%);
-  background-color: #ff4d4d;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-  font-weight: 500;
-  font-family: 'Poppins', sans-serif;
-  display: none;
-  z-index: 99;
-  animation: fadeInOut 4s ease forwards;
+  transform: translate(-50%, -40%) scale(0); /* float above character */
+  font-size: 22px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  background: linear-gradient(90deg, #000, #444, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 3;
 }
 
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  90% { opacity: 1; }
-  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-}
+
 
