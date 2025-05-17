@@ -58,6 +58,7 @@ h1 {
   margin-bottom: 10px;
   text-align: center;
   font-family: 'Playfair Display',sans-serif;
+  letter-spacing: 1.8px;
 }
 
 
@@ -95,3 +96,27 @@ form button:hover {
   color: black;
   transition: background-color 0.3s ease;
 }
+#popup-alert {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ff4d4d;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  display: none;
+  z-index: 99;
+  animation: fadeInOut 4s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+  10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+}
+

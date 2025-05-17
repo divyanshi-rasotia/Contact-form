@@ -12,11 +12,21 @@ form.addEventListener('submit', function (e) {
   const email = inputs[1].value.trim();
   const message = inputs[2].value.trim();
 
-  if (!name || !email || !message) {
-    character.src = 'assets/confused.png';
-    gsap.fromTo(character, { x: -10 }, { x: 10, duration: 0.2, repeat: 3, yoyo: true });
-    return;
-  }
+  if (!name) {
+  character.src = 'assets/confused.png';
+  showAlert('Please enter your name');
+  return;
+}
+if (!email) {
+  character.src = 'assets/confused.png';
+  showAlert('Please enter a valid email');
+  return;
+}
+if (!message) {
+  character.src = 'assets/confused.png';
+  showAlert('Please enter a message');
+  return;
+}
 
   // Show lookup expression
 character.src = 'assets/lookup.png';
@@ -35,3 +45,19 @@ gsap.fromTo(mail,
   }
 );
 });
+
+function showAlert(message) {
+  const alertBox = document.getElementById('popup-alert');
+  alertBox.innerText = message;
+  alertBox.style.display = 'block';
+
+  // Reset animation
+  alertBox.style.animation = 'none';
+  alertBox.offsetHeight; // Force reflow
+  alertBox.style.animation = null;
+
+  // Hide after animation
+  setTimeout(() => {
+    alertBox.style.display = 'none';
+  }, 4000);
+}
