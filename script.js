@@ -19,7 +19,7 @@ form.addEventListener('submit', function (e) {
 }
 if (!email) {
   character.src = 'assets/confused.png';
-  showAlert('Please enter a valid email');
+  showAlert('Please enter your email');
   return;
 }
 if (!message) {
@@ -47,22 +47,6 @@ gsap.fromTo(mail,
 );
 });
 
-function showAlert(message) {
-  const alertBox = document.getElementById('popup-alert');
-  alertBox.innerText = message;
-  alertBox.style.display = 'block';
-
-  // Reset animation
-  alertBox.style.animation = 'none';
-  alertBox.offsetHeight; // Force reflow
-  alertBox.style.animation = null;
-
-  // Hide after animation
-  setTimeout(() => {
-    alertBox.style.display = 'none';
-  }, 4000);
-}
-
 function showSuccess() {
   const text = document.getElementById('success-text');
   text.style.transform = 'translate(-50%, -40%) scale(1)';
@@ -77,4 +61,20 @@ function showSuccess() {
     text.style.opacity = '0';
     text.style.transform = 'translate(-50%, -40%) scale(0)';
   }, 1800);
+}
+
+function showAlert(message) {
+  const alertBox = document.getElementById('popup-alert');
+  alertBox.innerText = message;
+  alertBox.style.display = 'block';
+
+  // Reset animation
+  alertBox.style.animation = 'none';
+  alertBox.offsetHeight; // Force reflow
+  alertBox.style.animation = null;
+
+  // Hide after animation
+  setTimeout(() => {
+    alertBox.style.display = 'none';
+  }, 4000);
 }
